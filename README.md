@@ -20,7 +20,7 @@ You will still have to download the latest version of libCURL (link above) and p
 Setup
 =================
 * Install the up.time Controller (API) on the same system
-* Download and extract this project (uptime-status-map-dashboard) into a "/world_map" sub-directory in "[uptime_dir]/GUI/". The files should be placed in: "[uptime_dir]/GUI/world_map"
+* Download and extract this project (uptime-status-map-dashboard) into a "/world_map" sub-directory in "[uptime_dir]/GUI/". The files should be placed in: "[uptime_dir]/GUI/world_map". We can then access the UI with the link: "http://[uptime_dir]/world_map"
 * In the "world_map" directory there are two ".js" files that we need to edit to make this work:
 	* /js/uptime.mapEditor.js
 	* /js/uptime.viewDashboard.js
@@ -36,10 +36,31 @@ Setup global variables:
 	var uptime_ssl = true;
 	var uptime_ui_url = "https://" + uptime_host + ":9999";
 
+* Now we can access the interface by navigating to: http://[uptime_dir]/world_map
+* It will also be easier to access if we can add the dashboard and management interface to the up.time UI with the steps below.
 
-* Now that it's there, just enable remote access from outside of your network so that any mobile device can connect to that system, or else it will only be available from the internal network (Wifi).
 
-That's it!
+Adding the Dashboard to a Custom Tab under "My Portal"
+------------------------------------------------------
+* Click on the "Config" tab at the top, and then click on "up.time Configuration"
+* Enter the following to add a custom tab to My Portal:
+
+	myportal.custom.tab1.enabled=true
+	myportal.custom.tab1.name=Manage Status Maps
+	myportal.custom.tab1.URL=/world_map/
+
+
+Adding a Map Dashboard to the Custom Tab under "GlobalScan"
+-----------------------------------------------------------
+Once you create a dashboard, you can copy the URL and put it on GlobalScan for everyone to view. To add a custom tab to the up.time GlobalScan view:
+* Click on the "Config" tab at the top, and then click on "up.time Configuration"
+* Enter the following:
+
+	globalscan.custom.tab.enabled=true
+	globalscan.custom.tab.name=World Dashboard
+	globalscan.custom.tab.URL=/world_map/view_dashboards.php?d=[DASHBOARD_NAME]
+
+
 
 Sample Screenshot
 -----------------
