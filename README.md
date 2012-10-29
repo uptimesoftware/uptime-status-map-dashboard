@@ -43,4 +43,4 @@ That's it!
 
 Sample Screenshot
 -----------------
-<img src="https://raw.github.com/joelpereira/uptime-status-map-dashboard/master/screenshots/world-dashboard.png" width="500px" height="350px">
+<img src="https://raw.github.com/uptimesoftware/uptime-status-map-dashboard/master/screenshots/world-dashboard.png" width="500px" height="350px">
