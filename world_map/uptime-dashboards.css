@@ -1,0 +1,799 @@
+html,body {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	color: #565E6C;
+}
+
+table,input,form,select,textarea,button {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	color: #565E6C;
+}
+
+a {
+	color: #5F7EA7;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+.LicenseError {
+	color: #FF0000;
+	font-weight: bold;
+}
+
+.LicenseWarnLevel1 {
+	color: #000000;
+}
+
+.LicenseWarnLevel2 {
+	color: #FF0000;
+}
+
+.LicenseWarnLevel3 {
+	color: #FF0000;
+	font-weight: bold;
+}
+
+.FormButton {
+	font-weight: bold;
+	background-image: url(/images/bg-button.gif);
+	border: none;
+	height: 18px;
+	margin: 1px;
+	padding: 1px 4px 3px 4px;
+	float: none;
+	color: white;
+	background-color: white;
+}
+
+.FormButtonDisabled {
+	background-image: none;
+	background-color: #D5D8DC;
+	color: black;
+}
+
+.TitleBar,.TitleBarWithMargin {
+	font-size: 10px;
+	font-weight: bold;
+	color: black;
+	background-image: url(/images/bg-footerbuttons.gif);
+	height: 20px;
+	padding: 0 0 0 5px;
+	text-align: left;
+	vertical-align: middle;
+	line-height: 20px;
+}
+
+.TitleBarWithMargin {
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+.TitleBar .buttons {
+	float: right;
+	margin-left: 2px;
+}
+
+.TitleBar .title {
+	float: left;
+}
+
+div.TitleBar.collapsible {
+	cursor: pointer;
+	background-color: #D6D9DE;
+	background-image: url(/images/collapsibleheader/visible.gif);
+	background-repeat: no-repeat;
+	background-position: center left;
+	padding-left: 20px;
+}
+
+span.Link {
+	color: #5F7EA7;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+span.Link:hover {
+	text-decoration: underline;
+}
+
+div.TitleBar.collapsible.collapsed {
+	background-image: url(/images/collapsibleheader/collapsed.gif);
+}
+
+.ColumnHead {
+	background-image: url(/images/bg-columnhead.gif);
+	vertical-align: top;
+	height: 20px;
+	padding: 3px 5px 2px 7px;
+	white-space: nowrap;
+	color: #474D59;
+	line-height: 20px;
+}
+
+.IconCell {
+	text-align: center;
+	width: 25px;
+	text-decoration: none;
+	vertical-align: top;
+	padding: 1px 0px 0px 0px;
+}
+
+.IconCell img {
+	border: 0px;
+}
+
+.TitleButtons {
+	background-image: url(/images/bg-footerbuttons.gif);
+	text-align: right;
+	width: 200px;
+	color: #FFFFFF;
+}
+
+.Acknowledged {
+	font-weight: bolder;
+	color: Gray;
+	text-align: center;
+}
+
+.schedule.InfoLabel {
+	text-align: left;
+	vertical-align: top;
+	padding: 3px 5px 2px 7px;
+	white-space: nowrap;
+	font-weight: bold;
+}
+
+.schedule .daylist {
+	border: 1px solid red;
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+	width: 250px;
+}
+
+.schedule .daylist li {
+	border: 1px solid blue;
+	width: 80px;
+}
+
+.InfoLabel {
+	text-align: left;
+	vertical-align: top;
+	height: 20px;
+	padding: 3px 5px 2px 7px;
+	white-space: nowrap;
+	width: 220px;
+	font-weight: bold;
+}
+
+.Info {
+	text-align: left;
+	vertical-align: top;
+	height: 20px;
+	padding: 3px 5px 2px 7px;
+	font-weight: normal;
+}
+
+.LicenseInfo {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.LicenseNotification {
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+.FooterButtons {
+	background-color: #4D5594;
+	text-align: right;
+	background-image: url(/images/bg-footerbuttons.gif);
+	white-space: nowrap;
+}
+
+.TextArea {
+	height: 75px;
+	width: 300px;
+	border: 1px solid #535881;
+	background-color: #f9f9f9;
+	padding: 1px;
+}
+
+.SubTitleBar {
+	font-size: 10px;
+	font-weight: bold;
+	color: black;
+	background-image: url(/images/bg-subtitle.gif);
+	height: 20px;
+	padding: 0px 5px 0px 5px;
+	text-align: left;
+	vertical-align: middle;
+}
+
+.InfoColumn {
+	text-align: right;
+	vertical-align: top;
+	height: 20px;
+	padding: 2px 7px 1px 5px;
+	font-weight: normal;
+	background-image: url(/images/bg-column.gif);
+	width: 25px;
+}
+
+.SelectList {
+	width: 250px;
+	border: 1px solid #535881;
+	background-color: #f9f9f9;
+}
+
+.RowError {
+	color: #990000;
+	vertical-align: top;
+	text-align: left;
+	height: 20px;
+	padding: 2px 5px 1px 7px;
+	font-weight: bold;
+	background-color: #F6E484;
+}
+
+.RowDivider {
+	height: 1px;
+	font-weight: normal;
+	background-color: #f2f3f4;
+}
+
+.Variable {
+	text-align: left;
+	vertical-align: top;
+	height: 20px;
+	padding: 2px 5px 1px 7px;
+	font-weight: bold;
+	width: 50%;
+}
+
+ul.InlineFullWidth {
+	width: 98%;
+	text-align: center;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+ul.InlineFullWidth li {
+	display: inline;
+	list-style: none;
+}
+
+ul.NoMarker {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.graph {
+	text-align: center;
+	vertical-align: middle;
+}
+
+.FormField {
+	height: 19px;
+	width: 150px;
+	border: 1px solid #535881;
+	background-color: #f9f9f9;
+	padding: 1px;
+}
+
+.rowhighlight a {
+	color: #5F7EA7;
+}
+
+.rowhighlight a:hover {
+	text-decoration: underline;
+}
+
+/* TableHelper - changes made here can affect tables throughout the app*/
+.tablehelper thead tr {
+	background-color: #F2F3F4;
+	height: 20px;
+	padding: 0 5px 0 7px;
+	white-space: nowrap;
+	color: #474D59;
+	vertical-align: middle;
+}
+
+.tablehelper thead tr th {
+	height: 20px;
+	padding: 0 5px 0 7px;
+	white-space: nowrap;
+	vertical-align: middle;
+	text-align: left;
+	font-weight: normal;
+}
+
+.tablehelper tbody tr.bottomBorder td {
+	border-bottom: 1px solid #DADCCD;
+}
+
+tbody tr.odd td {
+	background-color: #F2F3F4;
+}
+
+thead tr th {
+	background-color: #C2C3C4;
+}
+
+.tablehelper tbody tr {
+	height: 20px;
+}
+
+.tablehelper tbody tr td {
+	height: 20px;
+	padding: 4px 5px 2px 7px;
+	white-space: nowrap;
+}
+
+.tablehelper tbody tr td.IconCell {
+	padding: 0;
+}
+
+.tablehelper thead tr .header {
+	background-image: url(/images/table/bg.gif);
+	background-repeat: no-repeat;
+	background-position: center left;
+	padding-left: 18px;
+	cursor: pointer;
+}
+
+.tablehelper thead tr .headerSortUp {
+	background-image: url(/images/table/asc.gif);
+}
+
+.tablehelper thead tr .headerSortDown {
+	background-image: url(/images/table/desc.gif);
+}
+/* -- end tablehelper styles -- */
+/* -- DataTable classes --*/
+.tablehelper thead tr .sorting {
+	background-image: url(/images/table/bg.gif);
+	background-repeat: no-repeat;
+	background-position: center left;
+	padding-left: 18px;
+	cursor: pointer;
+}
+
+.tablehelper thead tr .sorting_asc {
+	background-image: url(/images/table/asc.gif);
+	background-repeat: no-repeat;
+	background-position: center left;
+	padding-left: 18px;
+	cursor: pointer;
+}
+
+.tablehelper thead tr .sorting_desc {
+	background-image: url(/images/table/desc.gif);
+	background-repeat: no-repeat;
+	background-position: center left;
+	padding-left: 18px;
+	cursor: pointer;
+}
+
+.paginate_enabled_previous,.paginate_disabled_previous,.paginate_enabled_next,.paginate_disabled_next
+	{
+	float: left;
+	width: 18px;
+	height: 18px;
+	margin-left: 3px;
+}
+
+.paginate_enabled_previous {
+	background: url(/images/icon/paginate.png) no-repeat 0 0;
+}
+
+.paginate_disabled_previous {
+	background: url(/images/icon/paginate.png) no-repeat 0 -18px;
+}
+
+.paginate_enabled_next {
+	background: url(/images/icon/paginate.png) no-repeat -18px 0;
+}
+
+.paginate_disabled_next {
+	background: url(/images/icon/paginate.png) no-repeat -18px -18px;
+}
+
+.float_left {
+	float: left;
+	width: 50%;
+}
+
+.clear_both {
+	clear: both;
+}
+
+.dataTables_wrapper {
+	position: relative;
+}
+
+.dataTables_processing {
+	background-color: white;
+	border: 1px solid #DDDDDD;
+	color: #999999;
+	font-size: 14px;
+	height: 30px;
+	left: 50%;
+	margin-left: -125px;
+	margin-top: -15px;
+	padding: 14px 0 2px;
+	position: absolute;
+	text-align: center;
+	top: 100px;
+	width: 250px;
+}
+
+.dataTables_filter {
+	width: 50%;
+	float: right;
+	text-align: right;
+	font-size: 12px;
+}
+
+.dataTables_info {
+	width: 50%;
+	float: left;
+	font-size: 12px;
+}
+
+.dataTables_length {
+	font-size: 12px;
+}
+
+.dataTables_paginate {
+	float: right;
+	text-align: right;
+}
+
+.paging_full_numbers span.paginate_button,.paging_full_numbers span.paginate_active
+	{
+	border: 1px solid #aaa;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	padding: 2px 5px;
+	margin: 0 3px;
+	cursor: pointer;
+}
+
+.paging_full_numbers span.paginate_button {
+	background-color: #ddd;
+}
+
+.paging_full_numbers span.paginate_button:hover {
+	background-color: #ccc;
+}
+
+.paging_full_numbers span.paginate_active {
+	background-color: #eee;
+}
+
+/* -- start - vmware quicksnapshot table styles -- */
+.vmware-quicksnapshot-table {
+	float: left;
+	border-collapse: collapse;
+	width:475px;
+}
+
+.vmware-quicksnapshot-table thead tr {
+	background-color: #F2F3F4;
+	white-space: nowrap;
+	color: #474D59;
+	vertical-align: middle;
+}
+
+.vmware-quicksnapshot-table thead tr th {
+	height: 20px;
+	white-space: nowrap;
+	vertical-align: middle;
+	text-align: left;
+	font-weight: normal;
+}
+
+.vmware-quicksnapshot-table thead tr th.elementName {
+	font-weight: bold;
+	width:180px;
+}
+
+.vmware-quicksnapshot-table thead tr th.sparklineChart {
+	width:220px;
+}
+
+.vmware-quicksnapshot-table thead tr th.metric {
+	width:80px;
+}
+
+.sparklineContainer {
+	background-color: #FAFDFE;
+	width: 200px;
+	height: 30px;
+	text-align: center;
+	border: 1px solid black;
+}
+
+/* -- end - vmware quicksnapshot table styles -- */
+.fixedContentWidth {
+	width: 950px;
+}
+
+/* Summary Row Styles*/
+.SummaryRow {
+	vertical-align: top;
+	height: 20px;
+	padding: 4px 5px 2px 7px;
+	white-space: nowrap;
+}
+
+.SummaryBlock {
+	height: 18px;
+	padding: 3px 7px 3px 7px;
+	white-space: nowrap;
+}
+
+.OK {
+	width: 30px;
+	background-color: #67B10B;
+	background-image: url(/images/bg-rowGreen.gif);
+	background-repeat: repeat-x;
+	color: #444;
+}
+
+.OK a {
+	color: #444;
+}
+
+.Warn {
+	width: 30px;
+	background-color: #DAD60B;
+	background-image: url(/images/bg-rowYellow.gif);
+	background-repeat: repeat-x;
+}
+
+.Critical {
+	width: 30px;
+	color: #FFFFFF;
+	background-color: #B61211;
+	background-image: url(/images/bg-rowRed.gif);
+	background-repeat: repeat-x;
+}
+
+.Critical a {
+	color: #FFFFFF;
+}
+
+.Critical a:hover {
+	text-decoration: underline;
+}
+
+.Unknown {
+	width: 30px;
+	background-color: #AEAEAE;
+	background-image: url(/images/bg-rowGrey.gif);
+	background-repeat: repeat-x;
+}
+
+.Maint {
+	width: 30px;
+	color: #FFFFFF;
+	background-color: #555B98;
+	background-image: url(/images/bg-rowBlue.gif);
+	background-repeat: repeat-x;
+}
+
+.Maint a {
+	color: #FFFFFF;
+}
+
+.Maint a:hover {
+	text-decoration: underline;
+}
+
+/* Basic Styles */
+.centerText {
+	text-align: center;
+}
+
+.centerText table {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: left;
+}
+
+.rightText {
+	text-align: right;
+}
+
+.bold,.Bold {
+	font-weight: bold;
+}
+
+.normal {
+	font-weight: normal;
+}
+
+.Wrapped {
+	white-space: normal;
+}
+
+.autoHeight {
+	height: auto;
+}
+
+.autoWidth {
+	width: auto;
+}
+
+.Width50 {
+	width: 50px;
+}
+
+.Width100 {
+	width: 100px;
+}
+
+.Width200 {
+	width: 200px;
+}
+
+.Width220 {
+	width: 220px;
+}
+
+.Width250 {
+	width: 250px;
+}
+
+.Width300 {
+	width: 300px;
+}
+
+.Width160 {
+	width: 160px;
+}
+
+p.SimpleError,.warning {
+	font-size: 10px;
+	color: #990000;
+	font-weight: bold;
+}
+
+div.FlashError {
+	display: table-cell;
+	vertical-align: middle;
+	font-size: 10px;
+	text-align: center; /* IE quirks mode */
+}
+
+div.FlashError p {
+	color: #990000;
+	font-weight: bold;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div.FlashError a img {
+	border: none;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#stackTrace {
+	font-size: 12px;
+}
+
+#errorMessage {
+	font-size: 12px;
+	text-decoration: underline;
+}
+
+div#SingleFrameUIPageHeading {
+	height: 12px;
+	font-size: 10px;
+	padding-left: 7px;
+	overflow: hidden;
+}
+
+span.grey {
+	color: grey;
+}
+
+.NoVerticalMargin {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.LogMessagesHint {
+	background-color: #FFFFFF;
+	padding: 2px 2px 2px 2px;
+	border-style: solid;
+	border-width: 1px;
+}
+
+div.profileTab {
+	background-color: #F5F5F7;
+	border-width: 1px 1px 0 1px;
+	border-style: solid;
+	border-color: #CACACA;
+	height: 18px;
+	text-align: center;
+	padding: 0 2px;
+	margin-left: 6px;
+	margin-right: 6px;
+	float: left;
+}
+
+div.footerBar {
+	background-color: #4D5594;
+	text-align: right;
+	background-image: url(/images/bg-footerbuttons.gif);
+	width: 100%;
+	height: 20px;
+}
+
+ul.navMenu {
+	text-indent: 13px;
+	list-style-position: inside;
+	list-style-image: url(/images/navmenu/bullet.gif);
+	padding: 0;
+	margin: 0;
+}
+
+ul.navMenu li {
+	height: 19px;
+	padding-top: 3px;
+}
+
+ul.navMenu li.selected {
+	background-color: #E3E6EA;
+}
+
+ul.navMenu li.heading {
+	font-weight: bold;
+	text-indent: 3px;
+	list-style-type: none;
+	list-style-image: none;
+}
+
+[disabled] {
+	background-Color: #CCCCCC;
+}
+
+.editData {
+	display: none;
+}
+
+.vmwarePowerStateOverlay {
+	width:25px;
+	height:20px;
+}
+
+.vmwareVmOn{
+	background: url(/images/vmware/overlay/vm-on.png) no-repeat;
+}
+.vmwareVmOff{
+	background: url(/images/vmware/overlay/vm-off.png) no-repeat;
+}
+.vmwareVmSuspended{
+	background: url(/images/vmware/overlay/vm-suspended.png) no-repeat;
+}
+
+.vmwareHostOff{
+	background: url(/images/vmware/overlay/host-off.png) no-repeat;
+}
+.vmwareHostStandby{
+	background: url(/images/vmware/overlay/host-standby.png) no-repeat;
+}
+.vmwareHostMaintenance{
+	background: url(/images/vmware/overlay/host-maintenance.png) no-repeat;
+}
