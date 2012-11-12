@@ -1,4 +1,33 @@
-<!DOCTYPE html>
+<?php /* Smarty version Smarty-3.1.12, created on 2012-11-09 17:11:46
+         compiled from ".\smarty_ui\manage_dashboards.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:28710509810bbb295a2-34387468%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    '45eb3d9227a41176ccd1179c8ed15faec826fd6e' => 
+    array (
+      0 => '.\\smarty_ui\\manage_dashboards.tpl',
+      1 => 1352499105,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '28710509810bbb295a2-34387468',
+  'function' => 
+  array (
+  ),
+  'version' => 'Smarty-3.1.12',
+  'unifunc' => 'content_509810bbbb4142_22101314',
+  'variables' => 
+  array (
+    'message' => 0,
+    'dashboards' => 0,
+    'dash' => 0,
+    'copyLinkPath' => 0,
+    'tourText' => 0,
+  ),
+  'has_nocache_code' => false,
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_509810bbbb4142_22101314')) {function content_509810bbbb4142_22101314($_smarty_tpl) {?><!DOCTYPE html>
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="uptime-dashboards.css" />
@@ -60,8 +89,9 @@ Create New Dashboard
 
 <h2>4. Manage Existing Dashboards</h2>
 <div>
-<div id="message">{$message}</div>
-{if $dashboards|@count gt 0}
+<div id="message"><?php echo $_smarty_tpl->tpl_vars['message']->value;?>
+</div>
+<?php if (count($_smarty_tpl->tpl_vars['dashboards']->value)>0){?>
 <table id="dashboards" border="1" width="75%" cellspacing="0px" cellpadding="3px">
 <tr>
 	<th>Del</th>
@@ -70,14 +100,25 @@ Create New Dashboard
 	<th>Copy Link</th>
 </tr>
 
-{foreach from=$dashboards item=dash}
+<?php  $_smarty_tpl->tpl_vars['dash'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['dash']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['dashboards']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['dash']->key => $_smarty_tpl->tpl_vars['dash']->value){
+$_smarty_tpl->tpl_vars['dash']->_loop = true;
+?>
 <tr>
-	<td><a href="?del={$dash}" onclick="return confirmDelete('{$dash}');">Del</a></td>
-	<td><a href="map_editor.php?d={$dash}">Edit</a></td>
-	<td><a href="view_dashboard.php?d={$dash}" target="view">{$dash}</a></td>
-	<td><input id="copyText" type="text" value="{$copyLinkPath}view_dashboard.php?d={$dash}&" onclick="this.select(); document.execCommand('Copy');" size="60" /></td>
+	<td><a href="?del=<?php echo $_smarty_tpl->tpl_vars['dash']->value;?>
+" onclick="return confirmDelete('<?php echo $_smarty_tpl->tpl_vars['dash']->value;?>
+');">Del</a></td>
+	<td><a href="map_editor.php?d=<?php echo $_smarty_tpl->tpl_vars['dash']->value;?>
+">Edit</a></td>
+	<td><a href="view_dashboard.php?d=<?php echo $_smarty_tpl->tpl_vars['dash']->value;?>
+" target="view"><?php echo $_smarty_tpl->tpl_vars['dash']->value;?>
+</a></td>
+	<td><input id="copyText" type="text" value="<?php echo $_smarty_tpl->tpl_vars['copyLinkPath']->value;?>
+view_dashboard.php?d=<?php echo $_smarty_tpl->tpl_vars['dash']->value;?>
+&" onclick="this.select(); document.execCommand('Copy');" size="60" /></td>
 </tr>
-{/foreach}
+<?php } ?>
 </table>
 
 <br/>
@@ -110,16 +151,18 @@ myportal.custom.tab1.URL=[PASTE THE URL HERE]
 </textarea>
 
 
-{else}
+<?php }else{ ?>
 
 Go ahead and create some dashboards!
 
-{/if}
+<?php }?>
 </div>
 
 
 
 <!-- Tour created with Amberjack wizard: http://amberjack.org -->
-{$tourText}
+<?php echo $_smarty_tpl->tpl_vars['tourText']->value;?>
+
 </body>
 </html>
+<?php }} ?>

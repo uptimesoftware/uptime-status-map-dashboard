@@ -24,14 +24,57 @@ else {
 
 // Include the Smarty header file
 require_once("smarty_header.php");
+require_once("controller_conf_functions.php");
 
 
 $svgContent = file_get_contents($svgFileName);
 
 
+// display and save the controller info
+// format of file:
+// key=value
+// values to store (9 fields):
+// controller_hostname
+// controller_username
+// controller_password
+// controller_port=9997
+// controller_ssl=true
+// controller_version="v1"
+// uptime_ui_hostname
+// uptime_ui_ssl=true
+// uptime_ui_port
+
+// setup defaults
+$message = "";
+$options = array();
+$options['controller_hostname'] = "localhost";
+$options['controller_username'] = "admin";
+$options['controller_password'] = "";
+$options['controller_port']     = 9997;
+$options['controller_ssl']      = true;
+$options['controller_version']  = "v1";
+$options['uptime_ui_hostname']  = "localhost";
+$options['uptime_ui_ssl']       = false;
+$options['uptime_ui_port']      = 9999;
+
+// load settings from conf file
+$options = uptimeController::load_controller_info($options);
+
+
+
+
 ////////////////////////////////////////////////////////////////////////////////////////////
 // SMARTY: Assign variables
 $smarty->assign( 'svgContent', $svgContent );
+$smarty->assign( 'controller_hostname', $options['controller_hostname'] );
+$smarty->assign( 'controller_username', $options['controller_username'] );
+$smarty->assign( 'controller_password', $options['controller_password'] );
+$smarty->assign( 'controller_port',     $options['controller_port'] );
+$smarty->assign( 'controller_ssl',      $options['controller_ssl'] );
+$smarty->assign( 'controller_version',  $options['controller_version'] );
+$smarty->assign( 'uptime_ui_hostname',  $options['uptime_ui_hostname'] );
+$smarty->assign( 'uptime_ui_ssl',       $options['uptime_ui_ssl'] );
+$smarty->assign( 'uptime_ui_port',      $options['uptime_ui_port'] );
 // SMARTY: Display page
 $smarty->display('view_dashboard.tpl');
 

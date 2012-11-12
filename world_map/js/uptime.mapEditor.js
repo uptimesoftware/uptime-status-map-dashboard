@@ -1,16 +1,27 @@
 // setup global variables
+/*
+// these will be provided via the PHP > Smarty > JavaScript section (map_editor.tpl)
 var uptime_host = 'localhost';
 var uptime_user = 'admin';
 var uptime_pass = 'admin';
 var uptime_port = 9997;
 var uptime_ver = 'v1';
 var uptime_ssl = true;
+*/
 // connect to the uptime API
 var uptime_api = new uptimeApi(uptime_user, uptime_pass, uptime_host, uptime_port, uptime_ver, uptime_ssl);
 // setup global variables
 var svgEmbed;
 var svgCanvas;
 
+
+// sleep function
+function sleep(millis) {
+	var date = new Date();
+	var curDate = null;
+	do { curDate = new Date(); } 
+	while(curDate-date < millis)
+}
 
 
 function onStartup() {
@@ -24,7 +35,26 @@ function onStartup() {
 	//addScriptTagToSVG();
 	
 	// setup background
-	setBGOnSVG(true);
+	// wait a few microseconds to load the svg (1.0 second(s))
+	for (i = 0; (svgCanvas == null) && i < 10; i++) {	// let's try 15 times (1.5 seconds)
+		console.log("SVG still not loaded...");
+		if (svgCanvas == null) {
+			console.log("Sleeping for 0.01 seconds.");
+			sleep(100);
+		}
+		else {
+			break;
+		}
+	}
+	// BUG(?): Looks like Chrome (and possibly other browsers) don't like the Back button and working with SVG files with JavaScript, so if we detect the SVG canvas not loaded (null), just refresh the page to get around the issue
+	if (i >= 20) {
+		// just reload the page to "fix" it
+		location.reload();
+	}
+	
+	//setBGOnSVG(true);		// just assume SVG is already loaded (can sometimes get NULL error which results in empty page)
+	$(svgCanvas).ready(setBGOnSVG(true));	// load the background ONLY when the SVG has loaded
+
 	// refresh elements list
 	refreshElementsList();
 }
@@ -33,7 +63,31 @@ function refreshElementsList() {
 	$("select#elementsList").empty().append("<option value='blank'>Loading up.time Elements...</option>");
 	uptime_api.getElements("isMonitored=true", function(allElements) {
 		$("select#elementsList").empty().append("<option value='blank'>Select an Element...</option>");
+		// since the uptimeApi is working, let's hide the options to test/change the settings
+		$("#listNotWorking").empty();	// clear the helpful links for testing/changing the API settings
+		
+		// sort elements (http://stackoverflow.com/questions/5503900/how-to-sort-an-array-of-objects-with-jquery-or-javascript)
+		function SortByElementName(a, b){
+			var data_A = a.name.toLowerCase();
+			var data_B = b.name.toLowerCase(); 
+			//console.log("A: "+data_A+" B: "+data_B);
+			if ( data_A < data_B ) { // data_A come before data_B
+				//console.log("before");
+				return -1;
+			}
+			if ( data_A > data_B ) { // data_A come After data_B
+				//console.log("after");
+				return 1;
+			}
+			//console.log("same");
+			return 0; // data_A == data_B, no change.
+		}
+		// run the custom sort function
+		// info is here: (http://hungred.com/how-to/tutorial-sort-array-javascript/)
 		//console.log(allElements);
+		allElements.sort(SortByElementName);
+		//console.log(allElements);
+		
 		$.each(allElements, function(index,element) {
 			$("select#elementsList").append("<option value='"+element.id+"'>"+element.name+"</option>\n");		// display just the name
 			//$("select#elementsList").append("<option value='"+element.id+"'>"+element.name+" ("+element.hostname+")</option>\n");		// display name and hostname
@@ -53,7 +107,6 @@ function addScriptTagToSVG() {
 	
 	// go through each <g> tag and add the necessary onmouse* attributes
 	// get all the groups (g tags) in the SVG
-	console.log("in here!??!");
 	var groups = svgCanvas.getElementsByTagName("g");
 	// go through each one to confirm if the element has already been added
 	for (var i = 0; i < groups.length; i++) {
@@ -61,7 +114,7 @@ function addScriptTagToSVG() {
 		// add the onmouse* attributes
 		group.setAttributeNS(null, "onmouseup",   "drop(this)");
 		group.setAttributeNS(null, "onmousedown", "pickUp(this)");
-		group.setAttributeNS(null, "onclick",     "updateFormFields(this); showToolTip(this);");
+		group.setAttributeNS(null, "onclick",     "updateFormFields(this);");
 		//group.setAttributeNS(null, "onmouseover", "updateFormFields(this)");
 	}
 }
@@ -92,8 +145,10 @@ function removeElement() {
 		var groups = svgCanvas.getElementsByTagName("g");
 		// go through each one and delete the one with the correct ID
 		$.each(groups, function(index, group) {
-			if (group.id == elementToDelete) {
-				svgCanvas.documentElement.removeChild(groups[index]);
+			if ('undefined' !== typeof group) {
+				if (group.id == elementToDelete) {
+					svgCanvas.documentElement.removeChild(groups[index]);
+				}
 			}
 		});
 		
@@ -203,7 +258,7 @@ function addShape(shape) {
 		//newGroup.setAttribute('pointer-events', 'all');
 		newGroup.setAttribute('onmouseup',   'drop(this)');
 		newGroup.setAttribute('onmousedown', 'pickUp(this)');
-		newGroup.setAttribute('onclick',     'updateFormFields(this); showToolTip(this);');
+		newGroup.setAttribute('onclick',     'updateFormFields(this);');
 		newGroup.setAttribute('onmouseover', 'updateFormFields(this)');
 		
 		// SVG circle

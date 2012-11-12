@@ -1,19 +1,62 @@
-<!DOCTYPE html>
+<?php /* Smarty version Smarty-3.1.12, created on 2012-11-09 17:00:21
+         compiled from ".\smarty_ui\map_editor.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:3090509810f350e377-98534366%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    'df8296f4284ce38beae6f7d90c1598ec1ccf2a5b' => 
+    array (
+      0 => '.\\smarty_ui\\map_editor.tpl',
+      1 => 1352498391,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '3090509810f350e377-98534366',
+  'function' => 
+  array (
+  ),
+  'version' => 'Smarty-3.1.12',
+  'unifunc' => 'content_509810f3566901_43618445',
+  'variables' => 
+  array (
+    'svgDashboardName' => 0,
+    'controller_hostname' => 0,
+    'controller_username' => 0,
+    'controller_password' => 0,
+    'controller_port' => 0,
+    'controller_version' => 0,
+    'controller_ssl' => 0,
+    'backgrounds' => 0,
+    'background' => 0,
+    'uptimeApiTestLink' => 0,
+    'svgFileName' => 0,
+    'tourText' => 0,
+  ),
+  'has_nocache_code' => false,
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_509810f3566901_43618445')) {function content_509810f3566901_43618445($_smarty_tpl) {?><!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=9">
 <link rel="stylesheet" type="text/css" href="uptime-dashboards.css" />
 
 <script type='text/javascript'>
-var originalDashboardName = "{$svgDashboardName}";
+var originalDashboardName = "<?php echo $_smarty_tpl->tpl_vars['svgDashboardName']->value;?>
+";
 
 // uptimeAPI variables
-var uptime_host = '{$controller_hostname}';
-var uptime_user = '{$controller_username}';
-var uptime_pass = '{$controller_password}';
-var uptime_port = {$controller_port};
-var uptime_ver = '{$controller_version}';
-var uptime_ssl = {$controller_ssl};
+var uptime_host = '<?php echo $_smarty_tpl->tpl_vars['controller_hostname']->value;?>
+';
+var uptime_user = '<?php echo $_smarty_tpl->tpl_vars['controller_username']->value;?>
+';
+var uptime_pass = '<?php echo $_smarty_tpl->tpl_vars['controller_password']->value;?>
+';
+var uptime_port = <?php echo $_smarty_tpl->tpl_vars['controller_port']->value;?>
+;
+var uptime_ver = '<?php echo $_smarty_tpl->tpl_vars['controller_version']->value;?>
+';
+var uptime_ssl = <?php echo $_smarty_tpl->tpl_vars['controller_ssl']->value;?>
+;
 
 </script>
 <script type='text/javascript' src='js/jquery.js'></script>
@@ -64,9 +107,15 @@ td.menu {
 						(in "backgrounds" dir)<br/>
 						<form name="formSetBackground">
 							<select id="bgList" name="bgName" onchange="setBGOnSVG();">
-								{foreach from=$backgrounds item=background}
-								<option value="{$background}">{$background}</option>
-								{/foreach}
+								<?php  $_smarty_tpl->tpl_vars['background'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['background']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['backgrounds']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['background']->key => $_smarty_tpl->tpl_vars['background']->value){
+$_smarty_tpl->tpl_vars['background']->_loop = true;
+?>
+								<option value="<?php echo $_smarty_tpl->tpl_vars['background']->value;?>
+"><?php echo $_smarty_tpl->tpl_vars['background']->value;?>
+</option>
+								<?php } ?>
 							</select>
 							<input type="button" name="load" value="Load" onclick="setBGOnSVG();" />
 						</form>
@@ -81,7 +130,8 @@ td.menu {
 							</select>
 							<input type="button" name="refreshList" value="Reload List" onclick="refreshElementsList();" /><br/>
 							<div id="listNotWorking">
-								<a href="{$uptimeApiTestLink}" target="apiTest">List not working? Click here to test up.time API.</a><br/>
+								<a href="<?php echo $_smarty_tpl->tpl_vars['uptimeApiTestLink']->value;?>
+" target="apiTest">List not working? Click here to test up.time API.</a><br/>
 								<a href="manage_uptime_controller_info.php">Click here to change the up.time Controller settings.</a><br/>
 							</div>
 							<input type="button" name="circle" value="Add Circle" style="width: 120px" onclick="addCircle();" /><br/>
@@ -135,7 +185,8 @@ td.menu {
 			
 		</td>
 		<td class="outer">
-			<embed src="{$svgFileName}"
+			<embed src="<?php echo $_smarty_tpl->tpl_vars['svgFileName']->value;?>
+"
 				id="svgCanvas"
 				class="image"
 				width="100%" height="100%"
@@ -147,7 +198,8 @@ td.menu {
 
 
 <!-- Tour created with Amberjack wizard: http://amberjack.org -->
-{$tourText}
+<?php echo $_smarty_tpl->tpl_vars['tourText']->value;?>
+
 
 </body>
-</html>
+</html><?php }} ?>

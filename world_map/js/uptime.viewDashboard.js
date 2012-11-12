@@ -14,8 +14,8 @@ var uptimeColorUnknownLine = 'darkgrey';
 var showRefreshLine = true;
 var refreshRate = 15;	// API refresh rate in seconds
 
-
-// setup global variables
+/*
+// these will be provided via the PHP > Smarty > JavaScript section (view_dashboard.tpl)
 var uptime_host = 'localhost';
 var uptime_user = 'admin';
 var uptime_pass = 'admin';
@@ -23,6 +23,7 @@ var uptime_port = 9997;
 var uptime_ver = 'v1';
 var uptime_ssl = true;
 var uptime_ui_url = "https://" + uptime_host + ":9999";
+*/
 
 // connect to the uptime API
 var uptime_api = new uptimeApi(uptime_user, uptime_pass, uptime_host, uptime_port, uptime_ver, uptime_ssl);
