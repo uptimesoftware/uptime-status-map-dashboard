@@ -91,8 +91,8 @@ Create New Dashboard
 </ul>
 <textarea cols="80" rows="4">
 globalscan.custom.tab.enabled=true
-globalscan.custom.tab.name=CCTV Page Rotator
-globalscan.custom.tab.URL=/Page_Rotator/
+globalscan.custom.tab.name=My Dashboard
+globalscan.custom.tab.URL=[PASTE THE URL HERE]
 </textarea>
 
 <br/><br/>
