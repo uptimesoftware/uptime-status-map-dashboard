@@ -22,7 +22,7 @@ if ( isset($_REQUEST['user']) &&
 		isset($_REQUEST['cmd'])) {
 
 	$username = $_REQUEST['user'];
-	$password = $_REQUEST['pass'];
+	$password = html_entity_decode($_REQUEST['pass']);
 	$hostname = $_REQUEST['host'];
 	$port = 9997;
 	$version = "v1";

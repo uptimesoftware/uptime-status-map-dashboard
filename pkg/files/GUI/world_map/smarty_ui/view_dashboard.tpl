@@ -25,7 +25,7 @@ var uptime_ui_hostname = '{$uptime_ui_hostname}';
 var uptime_ui_port = {$uptime_ui_port};
 
 // uptime UI settings
-{if uptime_ui_ssl == true}
+{if $uptime_ui_ssl == true}
 var uptime_ui_protocol = "https://";
 {else}
 var uptime_ui_protocol = "http://";

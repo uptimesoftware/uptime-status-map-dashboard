@@ -82,7 +82,7 @@ function uptimeApi (username,password,hostname,port,version,ssl) {	// constructo
 	
 	// Make the call to the up.time API via JSON
 	this.getJSON = function(APICall,callback) {
-		var apiProxyUrl = "uptimeApi/apiProxy.php?user=" + apiUsername + "&pass=" + apiPassword + "&host=" + apiHostname + "&cmd=" + APICall;
+		var apiProxyUrl = "uptimeApi/apiProxy.php?port=" + apiPort + "&user=" + apiUsername + "&pass=" + apiPassword + "&host=" + apiHostname + "&cmd=" + APICall;
 		
 		//console.log("API Proxy URL: " + apiProxyUrl);
 		

@@ -400,7 +400,7 @@ class uptimeApi {
 		if (curl_error($session)) {
 			// CURL error
 			if ($dieOnError) {
-				die( "Error Fetching Data => ".curl_error($session) );
+				die( "Error Fetching Data => (".curl_error($session).") Host:{$this->apiHostname} Port:{$this->apiPort} User:{$this->apiUsername} Pass: {$this->apiPassword}" );
 			}
 			else {
 				// return error instead

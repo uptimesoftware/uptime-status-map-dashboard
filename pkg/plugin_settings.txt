@@ -1,0 +1,9 @@
+name=up.time Status Map Dashboard
+version=1.5
+platforms=windows
+description=Adds a drag & drop dashboard editor and viewer for element status.
+restartCore=false
+requiresAgentScript=false
+onUpgradeRemoveFiles=true
+onUpgradeRemoveMonitors=false
+enablePHPExtensions=php_curl
